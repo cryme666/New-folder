@@ -1,6 +1,6 @@
 from flask import Flask,render_template, request, redirect, url_for
 
-app = Flask("Форма зворотнього зв'язку")
+app = Flask("Форма зв'язку")
 
 @app.route('/')
 def home():
@@ -12,12 +12,12 @@ def submit():
         name = request.form.get('name')
         message = request.form.get('message')
 
-        print(f"Ім'я {name}\nПовідомлення: {message}")
+        print(f"Імя {name}\nПовідомлення: {message}")
 
         return render_template('success.html',name = name)
     else:
         return redirect(url_for('home'))
-
+    
 
 if __name__ == '__main__':
     app.run(debug=True)
